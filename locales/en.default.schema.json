@@ -1476,6 +1476,37 @@
         "name": "Image with text"
       }
     },
+    "image-with-collection": {
+      "name": "Image with Collection",
+      "settings": {
+        "head_text": {
+          "label": "Text",
+          "default": "no bullshit inside"
+        },
+        "bg_color": {
+          "label": "Background  Color"
+        }
+      },
+      "blocks": {
+        "name": "Item",
+        "settings": {
+          "image": {
+            "label": "Item Image"
+          },
+          "text": {
+            "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et ",
+            "label": "Item Text"
+          },
+          "handle_text": {
+            "default": "niacinamide",
+            "label": "Handle Text"
+          }
+        }
+      },
+      "presets": {
+        "name": "Image with Collection"
+      }
+    },
     "multirow": {
       "name": "Multirow",
       "settings": {

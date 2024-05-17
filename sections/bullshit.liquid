@@ -1,0 +1,127 @@
+{{ 'bullshit.css' | asset_url | stylesheet_tag }}
+
+<div class="container page-width">
+  <h1 class="head-text">{{ section.settings.head_text }}</h1>
+  <div class="image-gallery">
+    <div class="navigation">
+      <a class="navigation-left__arrow">{% render 'left-arrow' %}</a>
+      <a class="navigation-right__arrow">{% render 'right-arrow' %}</a>
+    </div>
+    <ul class="image-wrapper">
+      {%- for block in section.blocks -%}
+        <li class="image-gallery__item image-gallery__item--{{ block.id }} active">
+          {% style %}
+            .image-gallery__item--{{ block.id }} {
+              background-image: url("{{ block.settings.item_image | image_url }}");
+              background-position: center center;
+              background-size: cover;
+              object-fit: cover;
+              position: absolute;
+              overflow: hidden;
+            }
+          {% endstyle %}
+          {%- case block.type -%}
+            {%- when 'item' -%}
+              {%- if block.settings.item_image -%}
+                {% comment %}
+                  <img
+                    srcset="
+                      {%- if block.settings.item_image.width >= 375 -%}{{ block.settings.item_image | image_url: width: 375 }} 375w,{%- endif -%}
+                      {%- if block.settings.item_image.width >= 750 -%}{{ block.settings.item_image | image_url: width: 750 }} 750w,{%- endif -%}
+                      {%- if block.settings.item_image.width >= 1100 -%}{{ block.settings.item_image | image_url: width: 1100 }} 1100w,{%- endif -%}
+                      {%- if block.settings.item_image.width >= 1500 -%}{{ block.settings.item_image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                      {%- if block.settings.item_image.width >= 1780 -%}{{ block.settings.item_image | image_url: width: 1780 }} 1780w,{%- endif -%}
+                      {%- if block.settings.item_image.width >= 2000 -%}{{ block.settings.item_image | image_url: width: 2000 }} 2000w,{%- endif -%}
+                      {%- if block.settings.item_image.width >= 3000 -%}{{ block.settings.item_image | image_url: width: 3000 }} 3000w,{%- endif -%}
+                      {%- if block.settings.item_image.width >= 3840 -%}{{ block.settings.item_image | image_url: width: 3840 }} 3840w,{%- endif -%}
+                      {{ block.settings.item_image | image_url }} {{ block.settings.item_image.width }}w
+                    "
+                    sizes="100vw"
+                    src="{{ block.settings.item_image | image_url: width: 1500 }}"
+                    loading="lazy"
+                    alt="{{ block.settings.item_image.alt | escape }}"
+                    width="100%"
+                    height="{{ block.settings.item_image.width | divided_by: block.settings.item_image.aspect_ratio }}"
+                  >
+                {% endcomment %}
+              {% else %}
+                {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+              {%- endif -%}
+              <p class="image-text">{{ block.settings.item_text }}</p>
+            {%- else -%}
+          {%- endcase -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+    <div class="jumbotron-wrapper">
+      <ul class="list-group">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'item' -%}
+              <li class="list-group-item">
+                <a href="#" class="list-group-item__link">{{ block.settings.handle_text }}</a>
+              </li>
+            {%- else -%}
+          {%- endcase -%}
+        {%- endfor -%}
+      </ul>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.image-with-collection.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "head_text",
+      "label": "t:sections.image-with-collection.settings.head_text.label",
+      "default": "t:sections.image-with-collection.settings.head_text.default"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "t:sections.image-with-collection.settings.bg_color.label",
+      "default": "#58656F"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "t:sections.image-with-collection.blocks.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "item_image",
+          "label": "t:sections.image-with-collection.blocks.settings.image.label"
+        },
+        {
+          "type": "text",
+          "id": "item_text",
+          "label": "t:sections.image-with-collection.blocks.settings.text.label",
+          "default": "t:sections.image-with-collection.blocks.settings.text.default"
+        },
+        {
+          "type": "text",
+          "id": "handle_text",
+          "label": "t:sections.image-with-collection.blocks.settings.handle_text.label",
+          "default": "t:sections.image-with-collection.blocks.settings.handle_text.default"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.image-with-collection.presets.name",
+      "blocks": [
+        {
+          "type": "item"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
