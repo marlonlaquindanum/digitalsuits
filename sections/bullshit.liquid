@@ -1,15 +1,16 @@
 {{ 'bullshit.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'image-gallery.js' | asset_url }}" defer="defer"></script>
 
 <div class="container page-width">
   <h1 class="head-text">{{ section.settings.head_text }}</h1>
-  <div class="image-gallery">
+  <image-gallery>
     <div class="navigation">
-      <a class="navigation-left__arrow">{% render 'left-arrow' %}</a>
-      <a class="navigation-right__arrow">{% render 'right-arrow' %}</a>
+      <a class="image-gallery--btn__prev">{% render 'left-arrow' %}</a>
+      <a class="image-gallery--btn__next">{% render 'right-arrow' %}</a>
     </div>
     <ul class="image-wrapper">
       {%- for block in section.blocks -%}
-        <li class="image-gallery__item image-gallery__item--{{ block.id }} active">
+        <li class="image-gallery__item image-gallery__item--{{ block.id }}" tabindex="{{ forloop.index | minus: 1 }}">
           {% style %}
             .image-gallery__item--{{ block.id }} {
               background-image: url("{{ block.settings.item_image | image_url }}");
@@ -47,7 +48,7 @@
               {% else %}
                 {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
               {%- endif -%}
-              <p class="image-text">{{ block.settings.item_text }}</p>
+              <p class="image-gallery__text-item">{{ block.settings.item_text }}</p>
             {%- else -%}
           {%- endcase -%}
         </li>
@@ -59,14 +60,20 @@
           {%- case block.type -%}
             {%- when 'item' -%}
               <li class="list-group-item">
-                <a href="#" class="list-group-item__link">{{ block.settings.handle_text }}</a>
+                <a
+                  href="#"
+                  class="list-group-item__link image-gallery__handle"
+                  tabindex="{{ forloop.index | minus: 1 }}"
+                >
+                  {{- block.settings.handle_text -}}
+                </a>
               </li>
             {%- else -%}
           {%- endcase -%}
         {%- endfor -%}
       </ul>
     </div>
-  </div>
+  </image-gallery>
 </div>
 
 {% schema %}
