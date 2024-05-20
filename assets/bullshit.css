@@ -44,6 +44,8 @@ image-gallery {
 }
 
 .list-group {
+  margin: 0;
+  padding: 0;
   list-style-type: none;
   position: absolute;
   top: 50%;
@@ -108,7 +110,7 @@ image-gallery {
 @media screen and (max-width: 989px) {
   .jumbotron-wrapper {
     top: 50rem;
-    height: 350px;
+    height: 450px;
   }
 
   image-gallery {
@@ -121,5 +123,17 @@ image-gallery {
 
   .list-group-item > a {
     font-size: 30px;
+  }
+
+  .list-group-item {
+    padding: 0.5rem 0;
+  }
+
+  .navigation > a:first-child {
+    left: 1rem;
+  }
+  
+  .navigation > a:last-child {
+    right: 1rem;
   }
 }
