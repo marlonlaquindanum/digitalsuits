@@ -67,58 +67,13 @@
         "padding_bottom": 36
       }
     },
-    "image_with_text_iY9EYR": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading_UUCHLx": {
-          "type": "heading",
-          "settings": {
-            "heading": "Image with text",
-            "heading_size": "h1"
-          }
-        },
-        "text_F4Qiqc": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "text_style": "body"
-          }
-        },
-        "button_MJXLaB": {
-          "type": "button",
-          "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_UUCHLx",
-        "text_F4Qiqc",
-        "button_MJXLaB"
-      ],
-      "settings": {
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "layout": "image_first",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "section_color_scheme": "",
-        "color_scheme": "",
-        "image_behavior": "none",
-        "mobile_content_alignment": "left",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "bullshit_nnBAfE": {
       "type": "bullshit",
       "blocks": {
         "item_inqkMB": {
           "type": "item",
           "settings": {
+            "item_image": "shopify:\/\/shop_images\/image_69.png",
             "item_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et",
             "handle_text": "niacinamide"
           }
@@ -126,6 +81,7 @@
         "item_xBTbVf": {
           "type": "item",
           "settings": {
+            "item_image": "shopify:\/\/shop_images\/shot_28_860_V01.02_LR-HeroSquare.webp",
             "item_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et",
             "handle_text": "peptides"
           }
@@ -133,6 +89,7 @@
         "item_3933EB": {
           "type": "item",
           "settings": {
+            "item_image": "shopify:\/\/shop_images\/shot_27_846_V01.01_LR-HeroSquare.webp",
             "item_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et",
             "handle_text": "hialuronic acid"
           }
@@ -140,6 +97,7 @@
         "item_E9YrBD": {
           "type": "item",
           "settings": {
+            "item_image": "shopify:\/\/shop_images\/shot_02_031_V01.01_LR-HeroSquare.webp",
             "item_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et",
             "handle_text": "Marula oil"
           }
@@ -153,14 +111,13 @@
       ],
       "settings": {
         "head_text": "no bullshit inside",
-        "bg_color": "#58656F"
+        "bg_color": "#58656f"
       }
     }
   },
   "order": [
     "image_banner",
     "featured_collection",
-    "image_with_text_iY9EYR",
     "bullshit_nnBAfE"
   ]
 }
