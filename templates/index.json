@@ -81,6 +81,9 @@
         "item_3933EB",
         "item_E9YrBD"
       ],
+      "custom_css": [
+        ".container {padding-bottom: 10rem;}"
+      ],
       "settings": {
         "head_text": "no bullshit inside",
         "bg_color": "#58656f"
